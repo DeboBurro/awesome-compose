@@ -1,4 +1,8 @@
 from flask import Flask, request, jsonify
+import redis
+from rq import Queue
+r = redis.Redis(host='redis', port=6379)
+q = Queue(connection=r)
 
 app = Flask(__name__)
 
